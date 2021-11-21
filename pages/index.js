@@ -8,7 +8,7 @@ export default () => {
 
   async function submitData() {
     try {
-      await axios.post('http://localhost:3000/api/guestbook/', {
+      await axios.post('http://localhost:3000/api/guestbook', {
         name: name,
         message: message,
       });
@@ -16,7 +16,7 @@ export default () => {
       console.log('Error submitting post', error);
     }
   }
-
+  
   const handleSubmit = (e) => {
     console.log(e);
     e.preventDefault();
