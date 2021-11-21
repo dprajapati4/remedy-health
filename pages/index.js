@@ -1,21 +1,59 @@
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-export default () => (
-  <div>
-    <Link href="/guestbook">
-      <a>See all Posts!</a>
-    </Link>
+const axios = require('axios');
 
-    <form name="guestform">
-      <label htmlFor="name"> Name: </label>
-      <input type="text" id="name" name="name" placeholder="Name" /> <br />
-      <label htmlFor="message"> Message: </label>
-      <textarea
-        name="message"
-        form="guestform"
-        placeholder="Enter message here"
-      ></textarea>
-      <br />
-      <input type="submit" value="Submit" />
-    </form>
-  </div>
-);
+export default () => {
+  const [name, setName] = useState('');
+  const [message, setMessage] = useState('');
+
+  async function submitData() {
+    try {
+      await axios.post('http://localhost:3000/api/guestbook/', {
+        name: name,
+        message: message,
+      });
+    } catch (error) {
+      console.log('Error submitting post', error);
+    }
+  }
+
+  const handleSubmit = (e) => {
+    console.log(e);
+    e.preventDefault();
+    submitData(e);
+    setName("")
+    setMessage("")
+  };
+  return (
+    <div>
+      <Link href="/guestbook">
+        <a>See all Posts!</a>
+      </Link>
+      <form name="guestform" onSubmit={handleSubmit}>
+        <label htmlFor="name"> Name: </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={name}
+          placeholder="Name"
+          required
+          onChange={(e) => setName(e.target.value)}
+        />{' '}
+        <br />
+        <label htmlFor="message"> Message: </label>
+        <textarea
+          name="message"
+          form="guestform"
+          required
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        ></textarea>
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  );
+};
+
+
