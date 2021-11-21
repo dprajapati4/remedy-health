@@ -26,13 +26,15 @@ const Guestbook = () => {
 
   console.log('posts', posts);
     return (
-
     <div className="feed-container">
       <h1>This is the Feed</h1>
+    <div className="post-container">
      {posts.map(post => {
      return <div className="post" key={post.name}> Name: {post.name} <br/>
       Message: {post.message} </div>})
      }
+
+    </div>
       <Link href="/">
         <a>Make a new post</a>
       </Link>

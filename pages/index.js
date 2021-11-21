@@ -26,6 +26,7 @@ export default () => {
     submitData(e);
     setName("")
     setMessage("")
+    alert("Form submitted")
   };
   return (
 

@@ -53,5 +53,11 @@ img {
 .post {
   display: flex;
   border: 2px solid black;
-  justify-content:center
+  justify-content:center;
+  margin:5px
+}
+
+.post-container {
+  border: 5px solid black;
+  margin: 5px;
 }
