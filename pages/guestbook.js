@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+// import Layout from '../components/layout';
 const axios = require('axios');
+
 
 const Guestbook = () => {
   const [posts, setPosts] = useState([]);
@@ -24,16 +26,18 @@ const Guestbook = () => {
 
   console.log('posts', posts);
     return (
-    <div>
+
+    <div className="feed-container">
       <h1>This is the Feed</h1>
-     {posts.length && posts.map(post => {
-       console.log("THIS IS THE POST", post);
-     return <div key={post.name}> Name: {post.name} Message: {post.message} </div>})
+     {posts.map(post => {
+     return <div className="post" key={post.name}> Name: {post.name} <br/>
+      Message: {post.message} </div>})
      }
       <Link href="/">
         <a>Make a new post</a>
       </Link>
     </div>
+
   );
 }
 
