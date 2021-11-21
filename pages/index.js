@@ -1,3 +1,3 @@
 export default () => (
-  <div>NextJS App is running</div>
+  <div>This page is a form </div>
 )

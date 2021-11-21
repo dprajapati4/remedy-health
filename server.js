@@ -4,6 +4,7 @@ const next = require('next')
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
+const posts = []
 
 app.prepare().then(() => {
   const server = express()
@@ -11,11 +12,24 @@ app.prepare().then(() => {
 
   server.post('/api/guestbook', (req, res, next) => {
     // A POSTED REQUEST HERE
+    const {name, message } = req.body
+    try {
+      const post = {
+        name,
+        message
+      }
+      posts.push(post)
+      console.log('all posts', posts)
+      res.json(posts).status(200)
+    } catch (err) {
+      console.log('Error in post products route')
+      next(err)
+    }
   })
 
   server.get('/api/guestbook', (req, res, next) => {
-    res.json({
-      posts: []
+    res.send({
+      posts
     })
   })
 
