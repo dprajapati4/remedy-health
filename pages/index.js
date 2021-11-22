@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-const axios = require('axios');
+import { createPost } from './api/main';
 
 export default () => {
   const [name, setName] = useState('');
@@ -8,7 +8,7 @@ export default () => {
 
   async function submitData() {
     try {
-      await axios.post('/api/guestbook', {
+      await createPost({
         name: name,
         message: message,
       });
@@ -18,7 +18,6 @@ export default () => {
   }
 
   const handleSubmit = (e) => {
-    console.log(e);
     e.preventDefault();
     submitData(e);
     setName('');

@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-const axios = require('axios');
+import { getPosts } from './api/main'
 
 const Guestbook = () => {
   const [posts, setPosts] = useState([]);
 
   async function fetchData() {
     try {
-      const { data } = await axios.get('/api/guestbook');
-      console.log('the data', data.posts);
+      const { data } = await getPosts();
       if (data.posts.length) {
         const updatedData = data.posts;
         setPosts(updatedData);
