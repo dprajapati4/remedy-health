@@ -12,6 +12,8 @@ body {
 a {
   color: #0070f3;
   text-decoration: none;
+  font-size: xx-large;
+  text-align: center;
 }
 
 a:hover {
@@ -23,26 +25,30 @@ a:hover {
   display: flex;
   flex-direction: column;
   margin: 10px;
+  padding: 1rem 2rem;
+  border: 5px solid black;
 }
+
+h1 {
+  text-align: center;
+}
+
 
 .container {
   display: flex;
   flex-direction: column;
-  border: 10px solid black;
-  max-width: 36rem;
+  justify-content: center;
+  border: 8px solid black;
+  max-width: 40rem;
   padding: 0 1rem;
   margin: 3rem auto 6rem;
 
 }
 
-.feed-container {
-  flex-direction: column;
-  justify-content: center;
-  border: 10px solid black;
-  max-width: 36rem;
-  padding: 0 1rem;
-  margin: 3rem auto 6rem;
 
+.feed {
+  max-width: 40rem;
+  margin: 3rem auto 6rem;
 }
 
 .post {
@@ -52,7 +58,7 @@ a:hover {
   margin:5px
 }
 
-.post-container {
-  border: 5px solid black;
-  margin: 5px;
-}
+
+
+
+

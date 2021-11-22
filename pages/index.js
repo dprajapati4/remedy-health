@@ -26,9 +26,9 @@ export default () => {
     alert('Form submitted');
   };
   return (
+    <div className="container">
+    <h1> Remedy Health Form </h1>
     <div >
-    <div className="feed-container">
-
       <form
         className=".was-validated"
         id="form"
@@ -54,11 +54,10 @@ export default () => {
           <label htmlFor="message" className="form-label">
             Message
           </label>
-          <input
+          <textarea
             required
             className="form-control"
             id="message"
-            type='textarea'
             rows="3"
             name="message"
             value={message}
@@ -72,7 +71,7 @@ export default () => {
       </form>
     </div>
       <Link href="/guestbook">
-        <a>See all Posts!</a>
+        <a>See All Posts!</a>
       </Link>
     </div>
   );
