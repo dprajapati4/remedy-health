@@ -19,10 +19,9 @@ app.prepare().then(() => {
         message
       }
       posts.push(post)
-      console.log('all posts', posts)
       res.json(posts).status(200)
     } catch (err) {
-      console.log('Error in post products route')
+      console.log('Error in post form data route')
       next(err)
     }
   })

@@ -8,9 +8,6 @@ body {
   font-size: 18px;
 }
 
-/* * {
-  box-sizing: border-box;
-} */
 
 a {
   color: #0070f3;
@@ -21,10 +18,6 @@ a:hover {
   text-decoration: underline;
 }
 
-img {
-  max-width: 100%;
-  display: block;
-}
 
 #form {
   display: flex;
@@ -34,6 +27,7 @@ img {
 
 .container {
   display: flex;
+  flex-direction: column;
   border: 10px solid black;
   max-width: 36rem;
   padding: 0 1rem;
@@ -43,6 +37,7 @@ img {
 
 .feed-container {
   flex-direction: column;
+  justify-content: center;
   border: 10px solid black;
   max-width: 36rem;
   padding: 0 1rem;

@@ -1,6 +1,3 @@
-// import Layout from '../components/layout';
-// import '../styles/global.css'
-
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 const axios = require('axios');
@@ -24,42 +21,59 @@ export default () => {
     console.log(e);
     e.preventDefault();
     submitData(e);
-    setName("")
-    setMessage("")
-    alert("Form submitted")
+    setName('');
+    setMessage('');
+    alert('Form submitted');
   };
   return (
-
+    <div >
     <div className="feed-container">
+
+      <form
+        className=".was-validated"
+        id="form"
+        name="guestform"
+        onSubmit={handleSubmit}
+      >
+        <div className="mb-3">
+          <label htmlFor="name" className="form-label">
+            Name
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="name"
+            value={name}
+            placeholder="Name"
+            required
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="message" className="form-label">
+            Message
+          </label>
+          <input
+            required
+            className="form-control"
+            id="message"
+            type='textarea'
+            rows="3"
+            name="message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+        </div>
+        <br />
+        <button className="btn btn-primary" type="submit">
+          Submit form
+        </button>
+      </form>
+    </div>
       <Link href="/guestbook">
         <a>See all Posts!</a>
       </Link>
-      <form id="form" name="guestform" onSubmit={handleSubmit}>
-        <label htmlFor="name"> Name: </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={name}
-          placeholder="Name"
-          required
-          onChange={(e) => setName(e.target.value)}
-        />
-        <br />
-        <label htmlFor="message"> Message: </label>
-        <textarea
-          name="message"
-          form="guestform"
-          required
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
-        <br />
-        <input type="submit" value="Submit" />
-      </form>
     </div>
-
   );
 };
-
-

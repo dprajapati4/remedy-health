@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-// import Layout from '../components/layout';
 const axios = require('axios');
 
 
