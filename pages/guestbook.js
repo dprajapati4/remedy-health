@@ -7,7 +7,7 @@ const Guestbook = () => {
 
   async function fetchData() {
     try {
-      const { data } = await axios.get('http://localhost:3000/api/guestbook');
+      const { data } = await axios.get('/api/guestbook');
       console.log('the data', data.posts);
       if (data.posts.length) {
         const updatedData = data.posts;

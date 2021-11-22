@@ -8,7 +8,7 @@ export default () => {
 
   async function submitData() {
     try {
-      await axios.post('http://localhost:3000/api/guestbook', {
+      await axios.post('/api/guestbook', {
         name: name,
         message: message,
       });
